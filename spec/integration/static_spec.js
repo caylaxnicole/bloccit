@@ -5,8 +5,7 @@ const base = "http://localhost:3000/";
 describe("routes : static", () => {
 
   describe("GET /", () => {
-
-    it("should return status code 200 and have 'Welcome to Bloccit' in the body of the response", () => {
+    it("should return status code 200 and have 'Welcome to Bloccit' in the body of the response", (done) => {
       request.get(base, (err, res, body) => {
         expect(res.statusCode).toBe(200);
         expect(body).toContain("Welcome to Bloccit");
@@ -15,10 +14,11 @@ describe("routes : static", () => {
     });
   });
 
-  describe("GET /marco", () => {
-    it("should return status code 200", (done) => {
+  describe("GET /about", () => {
+    it("should return status code 200 and have 'About us' in the body of the response", (done) => {
       request.get(base, (err,res,body) => {
         expect(res.statusCode).toBe(200);
+        expect(body).toContain("About us");
         done();
       });
     });
