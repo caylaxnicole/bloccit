@@ -103,6 +103,7 @@ describe("routes : topics", () => {
         expect(err).toBeNull();
         expect(body).toContain("Edit Topic");
         expect(body).toContain("JS Frameworks");
+
         done();
       });
     });
@@ -130,5 +131,5 @@ describe("routes : topics", () => {
          });
      });
    });
-   
+
 });
