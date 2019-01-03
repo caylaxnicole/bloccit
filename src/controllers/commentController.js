@@ -4,7 +4,7 @@ const Authorizer = require("../policies/comment.js");
 module.exports = {
   create(req, res, next){
     const authorized = new Authorizer(req.user).create();
-    if(authorized){
+    if(authorized) {
       let newComment = {
         body: req.body.body,
         userId: req.user.id,
@@ -16,16 +16,17 @@ module.exports = {
         }
         res.redirect(req.headers.referer);
       });
-    } else{
+    } else {
       req.flash("notice", "You must be signed in to do that.")
       req.redirect("/users/sign_in");
     }
   },
+  
   destroy(req, res, next){
     commentQueries.deleteComment(req, (err, comment) => {
       if(err){
         res.redirect(err, req.headers.referer);
-      } else{
+      } else {
         res.redirect(req.headers.referer);
       }
     });

@@ -12,12 +12,14 @@ describe("Comment", () => {
     this.post;
     this.comment;
     sequelize.sync({force: true}).then((res) => {
+
       User.create({
         email: "starman@tesla.com",
         password: "Trekkie4lyfe"
       })
       .then((user) => {
         this.user = user;
+
         Topic.create({
           title: "Expeditions to Alpha Centauri",
           description: "A compilation of reports from recent visits to the star system.",
@@ -68,7 +70,7 @@ describe("Comment", () => {
       .then((comment) => {
         expect(comment.body).toBe("The geological kind.");
         expect(comment.postId).toBe(this.post.id);
-        expect(comment.userId).toBe(this.user.id);
+        expect(comment.userId).toBe(this.user.id)
         done();
       })
       .catch((err) => {
@@ -119,6 +121,7 @@ describe("Comment", () => {
     });
   });
 
+
   describe("#setPost()", () => {
     it("should associate a post and a comment together", (done) => {
       Post.create({
@@ -147,7 +150,5 @@ describe("Comment", () => {
       });
     });
   });
-
-
-
+  
 });
