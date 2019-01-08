@@ -36,4 +36,23 @@ module.exports = {
       }
     });
   }
+  // hasUpvoteFor(userId, callback){
+  //   return Post.findOne({
+  //     where: {
+  //       postId: post.userId,
+  //       userId: vote.userId
+  //     }
+  //   })
+  //   .then((vote) => {
+  //     if(vote.value = 1){
+  //       return true;
+  //     }
+  //     .then((vote) => {
+  //       callback(null, vote);
+  //     })
+  //     .catch((err) => {
+  //       callback(err);
+  //     });
+  //   });
+  // }
 }

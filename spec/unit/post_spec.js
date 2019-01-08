@@ -40,6 +40,7 @@ describe("Post", () => {
          })
        });
      });
+     
   describe("#create()", () => {
 
     it("should create a post object with a title, body, and assigned topic and user", (done) => {
@@ -125,7 +126,7 @@ describe("Post", () => {
    });
 
    describe("#getUser()", () => {
-     
+
      it("should return the associated topic", (done) => {
        this.post.getUser()
        .then((associatedUser) => {
