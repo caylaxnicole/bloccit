@@ -3,6 +3,7 @@ const topicRoutes = require("../routes/topics");
 const postRoutes = require("../routes/posts");
 const userRoutes = require("../routes/users");
 const commentRoutes = require("../routes/comments");
+const voteRoutes = require("../routes/votes");
 
 
 module.exports = {
@@ -18,5 +19,6 @@ module.exports = {
     app.use(userRoutes);
     app.use(topicRoutes);
     app.use(commentRoutes);
+    app.use(voteRoutes);
   }
 }

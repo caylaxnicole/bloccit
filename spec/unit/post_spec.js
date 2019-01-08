@@ -4,17 +4,20 @@ const Post = require("../../src/db/models").Post;
 const User = require("../../src/db/models").User;
 
 describe("Post", () => {
+
   beforeEach((done) => {
        this.topic;
        this.post;
        this.user;
        sequelize.sync({force: true}).then((res) => {
+
          User.create({
            email: "starman@tesla.com",
            password: "Trekkie4lyfe"
          })
          .then((user) => {
            this.user = user;
+
            Topic.create({
              title: "Expeditions to Alpha Centauri",
              description: "A compilation of reports from recent visits to the star system.",
@@ -38,6 +41,7 @@ describe("Post", () => {
        });
      });
   describe("#create()", () => {
+
     it("should create a post object with a title, body, and assigned topic and user", (done) => {
       Post.create({
         title: "Pros of Cryosleep during the long journey",
@@ -74,6 +78,7 @@ describe("Post", () => {
   });
 
   describe("#setTopic()", () => {
+
     it("should associate a topic and a post together", (done) => {
       Topic.create({
         title: "Challenges of interstellar travel",
@@ -91,6 +96,7 @@ describe("Post", () => {
   });
 
   describe("#getTopic()", () => {
+
     it("should return the associated topic", (done) => {
       this.post.getTopic()
       .then((associatedTopic) => {
@@ -101,6 +107,7 @@ describe("Post", () => {
   });
 
    describe("#setUser()", () => {
+
      it("should associate a post and a user together", (done) => {
        User.create({
          email: "ada@example.com",
@@ -118,6 +125,7 @@ describe("Post", () => {
    });
 
    describe("#getUser()", () => {
+     
      it("should return the associated topic", (done) => {
        this.post.getUser()
        .then((associatedUser) => {

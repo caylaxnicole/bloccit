@@ -61,6 +61,7 @@ describe("Comment", () => {
   });
 
   describe("#create()", () => {
+
     it("should create a comment object with a body, assigned post and user", (done) => {
       Comment.create({
         body: "The geological kind.",
@@ -95,6 +96,7 @@ describe("Comment", () => {
   });
 
   describe("#setUser()", () => {
+
     it("should associate a comment and a user together", (done) => {
       User.create({
         email: "bob@example.com",
@@ -112,6 +114,7 @@ describe("Comment", () => {
   });
 
   describe("#getUser()", () => {
+
     it("should return the associated user", (done) => {
       this.comment.getUser()
       .then((associatedUser) => {
@@ -123,6 +126,7 @@ describe("Comment", () => {
 
 
   describe("#setPost()", () => {
+
     it("should associate a post and a comment together", (done) => {
       Post.create({
         title: "Dress code on Proxima b",
@@ -142,6 +146,7 @@ describe("Comment", () => {
   });
 
   describe("#getPost()", () => {
+    
     it("should return the associated post", (done) => {
       this.comment.getPost()
       .then((associatedPost) => {
@@ -150,5 +155,5 @@ describe("Comment", () => {
       });
     });
   });
-  
+
 });
