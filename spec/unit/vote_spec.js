@@ -265,30 +265,30 @@ describe("Vote", () => {
   describe("#hasUpvoteFor()", () => {
 
     it("should return true if user already has an upvote for the post", (done) => {
-        Post.create({
-          title: "Dress code for the galaxy ball",
-          body: "Spacesuit, space gown, and space shoes.",
-          topicId: this.topic.id,
+      Post.create({
+        title: "What kind of coffee do they drink in space?",
+        body: "The cold kind.",
+        topicId: this.topic.id,
+        userId: this.user.id,
+        votes: {
+          value: 1,
           userId: this.user.id,
-          votes: [{
-            value: 1,
-            userId: this.user.id,
-            postId: this.post.id
-          }]
-        }, {
-          include: {
-            model: Vote,
-            as: "votes"
-          }
-        })
-        .then((post) => {
-          expect(post.hasUpvoteFor(this.post.userId)).toBe(true);
-          done();
-        })
-        .catch((err) => {
-          console.log(err);
-          done();
-        });
+          postId: this.post.id
+        }
+      }, {
+        include: {
+          model: Vote,
+          as: "votes"
+        }
+      })
+      .then((post) => {
+        expect(post.hasUpvoteFor(this.post.userId)).toBe(true);
+        done();
+      })
+      .catch((err) => {
+        console.log(err);
+        done();
+      });
       });
     });
 
@@ -300,11 +300,11 @@ describe("Vote", () => {
         body: "The cold kind.",
         topicId: this.topic.id,
         userId: this.user.id,
-        votes: [{
+        votes: {
           value: -1,
           userId: this.user.id,
           postId: this.post.id
-        }]
+        }
       }, {
         include: {
           model: Vote,
