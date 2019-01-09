@@ -53,6 +53,7 @@ describe("routes : posts", () => {
   });
 
   describe("POST /topics/:topicId/posts/create", () => {
+    
   it("should create a new post and redirect", (done) => {
     const options = {
       url: `${base}/${this.topic.id}/posts/create`,
@@ -77,6 +78,7 @@ describe("routes : posts", () => {
         });
       });
     });
+
     it("should not create a new post that fails validations", (done) => {
       const options = {
         url: `${base}/${this.topic.id}/posts/create`,

@@ -4,7 +4,7 @@ const postRoutes = require("../routes/posts");
 const userRoutes = require("../routes/users");
 const commentRoutes = require("../routes/comments");
 const voteRoutes = require("../routes/votes");
-
+const favoriteRoutes = require("../routes/favorites");
 
 module.exports = {
   init(app){
@@ -20,5 +20,6 @@ module.exports = {
     app.use(topicRoutes);
     app.use(commentRoutes);
     app.use(voteRoutes);
+    app.use(favoriteRoutes);
   }
 }
