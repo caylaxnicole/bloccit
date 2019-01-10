@@ -6,6 +6,7 @@ const User = require("../../src/db/models").User;
 const Topic = require("../../src/db/models").Topic;
 const Post = require("../../src/db/models").Post;
 const Comment = require("../../src/db/models").Comment;
+const Favorite = require("../../src/db/models").Favorite;
 
 
 describe("routes : users", () => {
@@ -132,6 +133,7 @@ describe("GET /users/:id", () => {
       })
     })
   });
+
 
   it("should present a list of comments and posts a user has created", (done) => {
     request.get(`${base}${this.user.id}`, (err, res, body) => {
