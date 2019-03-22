@@ -18,6 +18,16 @@ describe("routes : posts", () => {
          password: "Trekkie4lyfe"
        })
        .then((user) => {
+         request.get({
+           url: "http://localhost:3000/auth/fake",
+           form: {
+             role: user.role,
+             userId: user.id,
+             email: user.email
+           }
+         }, (err, res, body) => {
+           done();
+         });
          this.user = user;
          Topic.create({
            title: "Winter Games",
@@ -53,7 +63,7 @@ describe("routes : posts", () => {
   });
 
   describe("POST /topics/:topicId/posts/create", () => {
-    
+
   it("should create a new post and redirect", (done) => {
     const options = {
       url: `${base}/${this.topic.id}/posts/create`,
