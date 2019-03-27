@@ -3,37 +3,64 @@
   <head>
     <% include ./partials/head.ejs %>
   </head>
-  <body>
-    <% include ./partials/navbar.ejs %>
+  <body class="text-center">
       <% include ../static/partials/messages.ejs %>
-      <main class="container">
+      <main class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
 
         <!-- Jumbotron Header -->
-        <header class="jumbotron my-4">
-          <h1 class="display-3">Welcome to Bloccit</h1>
-          <p class="lead">An application for users to share information.</p>
-          <a href="/users/sign_up" class="btn btn-primary btn-lg">Sign up</a>
+        <header class="masthead mb-auto">
+          <div class="inner">
+            <h3 class="masthead-brand">Bloccit</h3>
+            <nav class="nav nav-masthead justify-content-center">
+                <a class="nav-link" href="/">Home</a>
+                <a class="nav-link" href="/topics">Topics</a>
+                <% if(currentUser) { %>
+                    <a class="nav-link" href="/users/<%= currentUser.id %>">Profile</a>
+                    <a class="nav-link" href="/users/sign_out">Sign out</a>
+                <% } else { %>
+                    <a class="nav-link" href="/users/sign_up">Sign up</a>
+                    <a class="nav-link" href="/users/sign_in">Sign in</a>
+                <% }%>
+            </nav>
+          </div>
         </header>
+        <main role="main" class="inner cover">
+          <h1 class="cover-heading">Welcome to Bloccit</h1>
+          <p class="lead">An application for users to share information.</p>
+          <p class="lead">
+          <a href="/users/sign_up" class="btn btn-secondary btn-lg">Sign up</a>
+          </p>
 
-        <!-- Page Features -->
-        <section class="row text-center">
 
-          <section class="col-lg-4">
-            <h4 class="card-title">Post</h4>
-            <p class="card-text">Share your thoughts about subjects that are important to you.</p>
-          </section>
-
-          <section class="col-lg-4">
-            <h4 class="card-title">Comment</h4>
-            <p class="card-text">Your opinion counts! But you have to make yourself heard first!</p>
-          </section>
-
-          <section class="col-lg-4">
-            <h4 class="card-title">Stay Informed</h4>
-            <p class="card-text">See the most active topics as well as trending subjects every day!</p>
-          </section>
-
-        </section>
+          <section class="row text-center">
+              <section class="col-lg-4">
+                <div class="card border-light mb-3" style="max-width: 18rem;">
+                  <div class="card-body text-dark">
+                    <h4 class="card-title">Post</h4>
+                    <p class="card-text">Share your thoughts about subjects that are important to you.</p>
+                  </div>
+                </div>
+              </section>
+              <section class="col-lg-4">
+                <div class="card border-light mb-3" style="max-width: 18rem;">
+                  <div class="card-body text-dark">
+                    <h4 class="card-title">Comment</h4>
+                    <p class="card-text">Your opinion counts! But you have to make yourself heard first!</p>
+                  </div>
+                </div>
+              </section>
+              <section class="col-lg-4">
+                <div class="card border-light mb-3" style="max-width: 18rem;">
+                  <div class="card-body text-dark">
+                    <h4 class="card-title">Stay Informed</h4>
+                    <p class="card-text">See the most active topics as well as trending subjects every day!</p>
+                  </div>
+                </div>
+              </section>
+            </section>
+        </main>
+        
+       
         <!-- /.row -->
 
       </main>
